@@ -1,6 +1,7 @@
 const fetchArticle = require("./fetchArticle");
 const googleSearch = require("./googleSearch");
 const scrapeArticle = require("./scraper");
+const rewriteArticle = require("./llm");
 
 const ARTICLE_ID = "PUT_REAL_ARTICLE_ID_HERE";
 
@@ -13,21 +14,21 @@ const ARTICLE_ID = "PUT_REAL_ARTICLE_ID_HERE";
 
     const links = await googleSearch(article.title);
 
-    console.log("Reference URLs:");
-    console.log(links);
-
-    const scrapedContents = [];
+    const referenceContents = [];
 
     for (const link of links) {
       const content = await scrapeArticle(link);
-      scrapedContents.push(content);
+      referenceContents.push(content);
     }
 
-    console.log("Scraped reference content length:");
-    console.log(scrapedContents.map(c => c.length));
+    const aiResult = await rewriteArticle(
+      article.originalContent,
+      referenceContents
+    );
+
+    console.log("AI Updated Article Preview:");
+    console.log(aiResult.updatedContent.substring(0, 200));
   } catch (error) {
     console.error("Phase 2 error:", error.message);
   }
 })();
-
-
