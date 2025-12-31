@@ -151,3 +151,82 @@ Phase 2 Status
  Phase 2 completed successfully
  AI automation pipeline implemented
  Backend integration verified
+
+
+
+ Phase 3 – Frontend Article Viewer
+Overview
+
+Phase 3 focuses on building a frontend interface to display articles stored in the backend.
+The goal is to present both original and AI-updated article content in a clean, readable, and user-friendly way.
+
+The frontend consumes the backend APIs created in Phase 1 and reflects the AI updates performed in Phase 2.
+
+What the Frontend Does
+
+Fetches articles from the backend using REST APIs
+
+Displays articles in a card-based layout
+
+Clearly shows whether an article is AI-updated or original
+
+Allows users to expand an article to view:
+
+Original content
+
+AI-updated content
+
+Reference links used for AI enhancement
+
+Frontend Tech Stack
+
+React (Vite)
+
+Axios
+
+Plain CSS (custom styling)
+
+Frontend Structure
+frontend/
+├── src/
+│   ├── components/
+│   │   └── ArticleCard.jsx
+│   ├── services/
+│   │   └── api.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles.css
+├── index.html
+└── package.json
+
+
+The frontend follows a component-based structure with a clear separation between UI, API calls, and styling.
+
+How to Run Phase 3
+cd frontend
+npm install
+npm run dev
+
+
+The application runs at:
+
+http://localhost:5173
+
+
+The backend server must be running for articles to load correctly.
+
+Design Notes
+
+Card-based UI for better readability
+
+Expand/collapse interaction for long content
+
+Visual distinction between original and AI-updated content
+
+Minimal and clean styling to keep focus on content
+
+Phase 3 Status
+
+ Frontend implemented successfully
+ Backend integration completed
+ AI-enhanced content displayed correctly
