@@ -4,7 +4,7 @@ const scrapeArticle = require("./scraper");
 const rewriteArticle = require("./llm");
 const updateArticle = require("./updateArticle");
 
-const ARTICLE_ID = "PUT_REAL_ARTICLE_ID_HERE";
+const ARTICLE_ID = "6954bd676205956ce9b69c70";
 
 (async () => {
   try {
